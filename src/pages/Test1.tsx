@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Select } from "antd";
 import { useTranslation } from "react-i18next";
-import "../styles/page-layout.scss";
 import { Link } from "react-router-dom";
+import "../styles/page-layout.scss";
 
 export default function Test1() {
   const { t, i18n } = useTranslation();

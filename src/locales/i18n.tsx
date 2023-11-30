@@ -1,6 +1,5 @@
 import { initReactI18next } from "react-i18next";
 import i18next from "i18next";
-
 import translationEN from './en.json'
 import translationTH from './th.json'
 
