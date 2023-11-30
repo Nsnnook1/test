@@ -4,5 +4,8 @@
   "layout":"จัดการหน้าเว็บ",
   "personal":"เก็บข้อมูลส่วนบุคคล",
   "languageEN" : "อังกฤษ", 
-  "languageTH" : "ไทย" 
+  "languageTH" : "ไทย",
+  "shapeR":"เลื่อนรูปแบบ",
+  "position":"เปลี่ยนตำแหน่ง",
+  "shapeL":"เลื่อนรูปแบบ"
 }

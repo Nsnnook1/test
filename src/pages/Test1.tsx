@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Button, Select } from "antd";
 import { useTranslation } from "react-i18next";
-import "../styles/button.scss";
+import "../styles/page-layout.scss";
+import { Link } from "react-router-dom";
 
 export default function Test1() {
   const { t, i18n } = useTranslation();
@@ -16,6 +17,23 @@ export default function Test1() {
     } else {
       setLanguage("ไทย");
     }
+  };
+
+  const renderIcon = (value: number) => {
+    const icon =
+      value === 1
+        ? "square"
+        : value === 2
+        ? "circle"
+        : value === 3
+        ? "oval"
+        : value === 4
+        ? "trapezoid"
+        : value === 5
+        ? "rectangle"
+        : "rhombus";
+
+    return <div className={`${icon}`} />;
   };
 
   const handleButtonLeft = () => {
@@ -38,9 +56,11 @@ export default function Test1() {
   };
 
   return (
-    <div>
+    <div className="layout-box">
       <div>
-        <div>{t("layout")}</div>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <div className="text-title">{t("layout")}</div>
+        </Link>
         <div className="select-box">
           <Select
             value={language}
@@ -52,18 +72,59 @@ export default function Test1() {
           />
         </div>
       </div>
-      <div>
-        <Button onClick={handleButtonLeft}>1</Button>
-        <Button onClick={handleButtonMiddle}>2 3</Button>
-        <Button onClick={handleButtonRight}>4</Button>
-      </div>
-      <div>
-        <Button onClick={handleButtonNumber}>{numbers[0]}</Button>
-        <Button onClick={handleButtonNumber}>{numbers[1]}</Button>
-        <Button onClick={handleButtonNumber}>{numbers[2]}</Button>
-        <Button onClick={handleButtonNumber}>{numbers[3]}</Button>
-        <Button onClick={handleButtonNumber}>{numbers[4]}</Button>
-        <Button onClick={handleButtonNumber}>{numbers[5]}</Button>
+
+      <div className="layout-position">
+        <div className="layout-middle-header">
+          <Button onClick={handleButtonLeft}>
+            <div className="left-triangle" />
+            <div className="button-position-subdetail">{t("shapeR")}</div>
+          </Button>
+          <Button onClick={handleButtonMiddle} className="layout-middle-button">
+            <div className="triangle" /> <div className="inverted-triangle" />
+            <div className="button-position-subdetail">{t("position")}</div>
+          </Button>
+          <Button onClick={handleButtonRight}>
+            <div className="right-triangle" />
+            <div className="button-position-subdetail">{t("shapeL")}</div>
+          </Button>
+        </div>
+        <hr />
+        <div className="layout-position-box">
+          <div
+            className={`${
+              position
+                ? "layout-position-wrapper-end"
+                : "layout-position-wrapper-start"
+            }`}
+          >
+            <Button onClick={handleButtonNumber}>
+              {renderIcon(numbers[0])}
+            </Button>
+            <Button onClick={handleButtonNumber}>
+              {renderIcon(numbers[1])}
+            </Button>
+            <Button onClick={handleButtonNumber}>
+              {renderIcon(numbers[2])}
+            </Button>
+          </div>
+          <div
+            className={`${
+              !position
+                ? "layout-position-wrapper-end"
+                : "layout-position-wrapper-start"
+            }`}
+          >
+            <Button onClick={handleButtonNumber}>
+              {renderIcon(numbers[3])}
+            </Button>
+            <Button onClick={handleButtonNumber}>
+              {renderIcon(numbers[4])}
+            </Button>
+            <Button onClick={handleButtonNumber}>
+              {renderIcon(numbers[5])}
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
