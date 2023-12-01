@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+}
+
+.management-box{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.management-card{
+    width: 100%;
+    border: 1px solid #0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.management-input-center {
+    display: flex;
+    justify-content: center;
+}
+
+.row {
+    padding: 5px;
+}
