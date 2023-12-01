@@ -1,23 +1,14 @@
-import { useState } from "react";
-import { Button, Select } from "antd";
+import React, { useState } from "react";
+import { Button } from "antd";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import "../styles/page-layout.scss";
+import Translate from "../components/Translate";
+import "../styles/layout-page.scss";
 
-export default function Test1() {
-  const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState("en");
-  const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6]);
-  const [position, setposition] = useState(true);
-
-  const onClickLanguageChange = (value: any) => {
-    i18n.changeLanguage(value);
-    if (value === "en") {
-      setLanguage(value);
-    } else {
-      setLanguage("ไทย");
-    }
-  };
+const Test1: React.FC = () => {
+  const { t } = useTranslation();
+  const [numbers, setNumbers] = useState<number[]>([1, 2, 3, 4, 5, 6]);
+  const [position, setPosition] = useState<boolean>(true);
 
   const renderIcon = (value: number) => {
     const icon =
@@ -42,7 +33,7 @@ export default function Test1() {
   };
 
   const handleButtonMiddle = () => {
-    setposition(!position);
+    setPosition(!position);
   };
 
   const handleButtonRight = () => {
@@ -61,16 +52,7 @@ export default function Test1() {
         <Link to="/" style={{ textDecoration: "none" }}>
           <div className="text-title">{t("layout")}</div>
         </Link>
-        <div className="select-box">
-          <Select
-            value={language}
-            options={[
-              { value: "en", label: <div>{t("languageEN")}</div> },
-              { value: "th", label: <div>{t("languageTH")}</div> },
-            ]}
-            onChange={(e) => onClickLanguageChange(e)}
-          />
-        </div>
+        <Translate />
       </div>
 
       <div className="layout-position">
@@ -128,4 +110,6 @@ export default function Test1() {
       </div>
     </div>
   );
-}
+};
+
+export default Test1;

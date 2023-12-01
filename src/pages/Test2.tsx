@@ -1,7 +1,31 @@
-import React from 'react'
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { Button, Checkbox } from "antd";
+import Translate from "../components/Translate";
+import PersonForm from "../components/PersonForm";
+import PersonTable from "../components/PersonTable";
+import "../styles/management-page.scss";
 
-export default function Test2() {
+const Test2: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
-    <div>Test2</div>
-  )
-}
+    <div className="management-box">
+      <div>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <div className="text-title">{t("personal")}</div>
+        </Link>
+        <Translate />
+      </div>
+      <div>
+        <PersonForm />
+      </div>
+      <div>
+        <PersonTable />
+      </div>
+    </div>
+  );
+};
+
+export default Test2;
