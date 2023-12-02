@@ -64,6 +64,9 @@ const PersonTable: React.FC = () => {
   const [isSelect, setIsSelect] = useState(0);
   const localStorageValue: string | null = localStorage.getItem('persons');
   const dataSource: readonly DataType[] = localStorageValue ? JSON.parse(localStorageValue) : [];
+  const localPersons = JSON.parse(localStorage.getItem('persons') || '[]');
+  const personIndex = localPersons.findIndex((person: Persons) => person.key === isSelect);
+
   const [editForm, setEditForm] = useState<EditPersons>({
     name: '',
     gender: 0,
@@ -84,10 +87,6 @@ const PersonTable: React.FC = () => {
 
   const handleOk = () => {
     setIsModalOpen(false);
-    
-    const localPersons = JSON.parse(localStorage.getItem('persons') || '[]');
-
-    const personIndex = localPersons.findIndex((person: Persons) => person.key === isSelect);
 
     if (personIndex !== -1) { 
       const formData = {
@@ -174,6 +173,9 @@ const PersonTable: React.FC = () => {
   }
   
   const handleDelete = (key: number) => {
+    const updatedPersons = localPersons.filter((person: Persons) => person.key !== key);
+
+    localStorage.setItem('persons', JSON.stringify(updatedPersons));
     dispatch(deletePerson(key));
   };
 
