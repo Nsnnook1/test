@@ -16,12 +16,17 @@ const Test2: React.FC = () => {
         <Link to="/" style={{ textDecoration: "none" }}>
           <div className="text-title">{t("personal")}</div>
         </Link>
-        <Translate />
+        <Translate/>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <div className="button-homepage">
+            <Button>{t("homePage")}</Button>
+          </div>
+        </Link>
       </div>
       <div>
         <PersonForm />
       </div>
-      <div>
+      <div className="manage-person-box">
         <PersonTable />
       </div>
     </div>

@@ -1,9 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
 interface Person {
-  id: number;
+  key: number;
+  title: string;
   name: string;
-  age: number;
+  lastname: string;
+  birthdate: string;
+  national: string;
+  idCard?: string[];
+  gender: number;
+  mobilePrefix: number;
+  mobileNumber: number;
+  passport?: string;
+  expectedSalary: number;
 }
 
 interface PersonsState {
@@ -19,20 +27,30 @@ export const personsSlice = createSlice({
   initialState,
   reducers: {
     addPerson: (state, action: PayloadAction<Person>) => {
-      state.persons.push(action.payload);
+      // state.persons.push(action.payload);
+      return {
+        ...state,
+        persons: [...state.persons, action.payload],
+      };
     },
     editPerson: (state, action: PayloadAction<Person>) => {
-      const index = state.persons.findIndex((p) => p.id === action.payload.id);
+      const index = state.persons.findIndex(
+        (p: any) => p.key === action.payload.key
+      );
       if (index !== -1) {
         state.persons[index] = action.payload;
       }
     },
     deletePerson: (state, action: PayloadAction<number>) => {
-      state.persons = state.persons.filter((p) => p.id !== action.payload);
+      state.persons = state.persons.filter(
+        (p: any) => p.key !== action.payload
+      );
     },
   },
 });
 
 export const { addPerson, editPerson, deletePerson } = personsSlice.actions;
+
+export const getPersons = (state: any) => state.persons.persons;
 
 export default personsSlice.reducer;

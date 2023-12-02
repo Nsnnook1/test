@@ -1,6 +1,6 @@
+import React from "react";
 import { Button } from "antd";
 import { useTranslation } from "react-i18next";
-import React from "react";
 import Translate from "../components/Translate";
 import "../styles/button.scss";
 

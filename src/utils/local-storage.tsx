@@ -1,7 +1,8 @@
-import React from 'react'
+import React from "react";
 
-export default function localStorage() {
-  return (
-    <div>local-storage</div>
-  )
-}
+const localStorage: React.FC = () => {
+  
+  return <div>local-storage</div>;
+};
+
+export default localStorage;

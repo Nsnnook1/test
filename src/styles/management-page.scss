@@ -6,9 +6,11 @@
     padding: 8px;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(50deg, #6eda78, #ffa200);
 }
 
 .management-card{
+    padding: 8px;
     width: 100%;
     border: 1px solid #0000;
     display: flex;
@@ -23,4 +25,26 @@
 
 .row {
     padding: 5px;
+    margin-bottom: 10px;
+}
+
+.button-homepage{
+    position: absolute;
+    right: 8px;
+    margin-top: 8px;
+}
+
+:where(.css-dev-only-do-not-override-2q8sxy).ant-card .ant-card-body {
+    padding: 10px;
+}
+
+:where(.css-dev-only-do-not-override-2q8sxy).ant-card {
+    background: none;
+    border-color: black;
+}
+
+.manage-person-box{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }
