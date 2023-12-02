@@ -130,11 +130,7 @@ const PersonForm: React.FC = () => {
             {t("title")}:
           </Col>
           <Col xs={5} style={{ marginRight: "20px" }}>
-            {/* <Input
-              onChange={(e) => handleInputChange("title", e.target.value)}
-              value={formValues.title}
-              placeholder="คำนำหน้า"
-            /> */}
+           
             <Select
               style={{ width: "100%" }}
               onChange={(value) => handleInputChange("title", value)}
@@ -202,7 +198,7 @@ const PersonForm: React.FC = () => {
             <Input
               onChange={(e) => handleInputChange("national", e.target.value)}
               value={formValues.national}
-              placeholder="---กรุณาเลือก---"
+              placeholder="สัญชาติ"
             />
             {isSubmit && !formValues.national && (
               <div style={{ color: "red" }}>Please enter your nationnal</div>

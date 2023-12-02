@@ -15,15 +15,6 @@ interface DataType {
   national: string;
 }
 
-// const loadPersons = () => {
-//   const persons = localStorage.getItem("persons");
-//   return persons ? JSON.parse(persons) : [];
-// };
-
-// const savePersons = (persons: string) => {
-//   localStorage.setItem("persons", JSON.stringify(persons));
-// };
-
 const onChange: TableProps<DataType>["onChange"] = (
   pagination,
   filters,
