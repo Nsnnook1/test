@@ -134,6 +134,7 @@ const PersonForm: React.FC = () => {
             <Select
               style={{ width: "100%" }}
               onChange={(value) => handleInputChange("title", value)}
+              value={formValues.title}
               options={[
                 { value: "mr", label: "Mr." },
                 { value: "ms", label: "Ms." },
@@ -198,7 +199,7 @@ const PersonForm: React.FC = () => {
             <Input
               onChange={(e) => handleInputChange("national", e.target.value)}
               value={formValues.national}
-              placeholder="สัญชาติ"
+              placeholder="สัญชาต"
             />
             {isSubmit && !formValues.national && (
               <div style={{ color: "red" }}>Please enter your nationnal</div>
@@ -300,6 +301,7 @@ const PersonForm: React.FC = () => {
             <Select
               style={{ width: "100%" }}
               onChange={(value) => handleInputChange("mobilePrefix", value)}
+              value={formValues.mobilePrefix}
               options={[
                 { value: "06", label: "06" },
                 { value: "08", label: "08" },
